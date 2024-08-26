@@ -1,0 +1,435 @@
+$date
+	Mon Oct 26 15:39:52 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module cpu_full_tb $end
+$var reg 1 ! clk_external_tb $end
+$var reg 1 " reset_full_tb $end
+$scope module test_cpu_full $end
+$var wire 1 ! clk_external $end
+$var wire 1 " reset_full $end
+$var wire 10 # pc_and_branch_logic_output [9:0] $end
+$var wire 8 $ instruction_reg_operand_output [7:0] $end
+$var wire 4 % instruction_reg_opcode_output [3:0] $end
+$var wire 12 & instruction_output_from_imem [11:0] $end
+$var wire 8 ' data_memory_output [7:0] $end
+$var wire 2 ( cu_B [1:0] $end
+$var wire 2 ) cu_A [1:0] $end
+$var wire 10 * control_mem_out [9:0] $end
+$var wire 4 + control_mem_addr_from_sequencer [3:0] $end
+$var wire 1 , clk $end
+$var wire 8 - R_alu_datapath_output [7:0] $end
+$var wire 1 . RER $end
+$var wire 1 / REPC $end
+$var wire 1 0 REIR $end
+$var wire 1 1 REDMEM $end
+$var wire 1 2 INC $end
+$var wire 1 3 HLT $end
+$scope module PC_and_branch_full $end
+$var wire 1 2 INC $end
+$var wire 1 / REPC $end
+$var wire 1 , clk $end
+$var wire 1 " reset_pc $end
+$var wire 8 4 ir_operand_addr [7:0] $end
+$var wire 4 5 ir_opcode [3:0] $end
+$var wire 8 6 R_val [7:0] $end
+$var reg 10 7 pc [9:0] $end
+$upscope $end
+$scope module alu_datapath_full $end
+$var wire 1 . RER $end
+$var wire 1 , clk $end
+$var wire 2 8 cu_A [1:0] $end
+$var wire 2 9 cu_B [1:0] $end
+$var wire 1 " reset_alu_datapath $end
+$var wire 4 : opcode [3:0] $end
+$var wire 8 ; ir_operand [7:0] $end
+$var wire 8 < dmem_data [7:0] $end
+$var reg 8 = A [7:0] $end
+$var reg 8 > B [7:0] $end
+$var reg 8 ? R [7:0] $end
+$upscope $end
+$scope module control_mem_full $end
+$var wire 1 , clk $end
+$var wire 1 " reset_control_word $end
+$var wire 4 @ control_addr [3:0] $end
+$var reg 10 A control_word [9:0] $end
+$upscope $end
+$scope module dmem_full $end
+$var wire 1 1 REDMEM $end
+$var wire 1 , clk $end
+$var wire 8 B read_val [7:0] $end
+$var wire 1 " reset_dmem $end
+$var wire 8 C dmem_addr [7:0] $end
+$var reg 8 D data [7:0] $end
+$upscope $end
+$scope module instruction_memory_full $end
+$var wire 1 , clk $end
+$var wire 10 E instruction_addr_pc [9:0] $end
+$var wire 1 " reset_instruction $end
+$var reg 12 F instruction [11:0] $end
+$upscope $end
+$scope module instruction_register_full $end
+$var wire 1 0 REIR $end
+$var wire 1 , clk $end
+$var wire 12 G instruction [11:0] $end
+$var wire 1 " reset_ir $end
+$var reg 4 H ir_opcode [3:0] $end
+$var reg 8 I ir_operand_or_addr [7:0] $end
+$upscope $end
+$scope module sequencer_full $end
+$var wire 1 , clk $end
+$var wire 4 J opcode [3:0] $end
+$var wire 1 " reset_sequencer $end
+$var reg 4 K control_address [3:0] $end
+$var reg 2 L count [1:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 L
+b0 K
+b0 J
+b0 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+b0 ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+03
+02
+01
+00
+0/
+0.
+b0 -
+1,
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+b0 %
+b0 $
+b0 #
+1"
+1!
+$end
+#5
+0,
+0!
+#10
+b1 +
+b1 @
+b1 K
+10
+bx '
+bx <
+bx D
+b111000000000 &
+b111000000000 F
+b111000000000 G
+b1 L
+b1000000 *
+b1000000 A
+1,
+1!
+0"
+#15
+0,
+0!
+#20
+12
+1/
+00
+b1001 +
+b1001 @
+b1001 K
+b110000000 *
+b110000000 A
+b10 L
+b1110 %
+b1110 5
+b1110 :
+b1110 H
+b1110 J
+1,
+1!
+#25
+0,
+0!
+#30
+b0 +
+b0 @
+b0 K
+02
+0/
+b1 #
+b1 7
+b1 E
+b0 L
+b0 *
+b0 A
+1,
+1!
+#35
+0,
+0!
+#40
+10
+b1 +
+b1 @
+b1 K
+b1000000 *
+b1000000 A
+b1 L
+b111100000000 &
+b111100000000 F
+b111100000000 G
+1,
+1!
+#45
+0,
+0!
+#50
+b1010 +
+b1010 @
+b1010 K
+12
+1/
+00
+b1111 %
+b1111 5
+b1111 :
+b1111 H
+b1111 J
+b10 L
+b110000000 *
+b110000000 A
+1,
+1!
+#55
+0,
+0!
+#60
+13
+02
+0/
+b0 +
+b0 @
+b0 K
+b1000000000 *
+b1000000000 A
+b0 L
+b10 #
+b10 7
+b10 E
+0,
+1!
+#65
+0!
+#70
+1!
+#75
+0!
+#80
+1!
+#85
+0!
+#90
+1!
+#95
+0!
+#100
+1!
+#105
+0!
+#110
+1!
+#115
+0!
+#120
+1!
+#125
+0!
+#130
+1!
+#135
+0!
+#140
+1!
+#145
+0!
+#150
+1!
+#155
+0!
+#160
+1!
+#165
+0!
+#170
+1!
+#175
+0!
+#180
+1!
+#185
+0!
+#190
+1!
+#195
+0!
+#200
+1!
+#205
+0!
+#210
+1!
+#215
+0!
+#220
+1!
+#225
+0!
+#230
+1!
+#235
+0!
+#240
+1!
+#245
+0!
+#250
+1!
+#255
+0!
+#260
+1!
+#265
+0!
+#270
+1!
+#275
+0!
+#280
+1!
+#285
+0!
+#290
+1!
+#295
+0!
+#300
+1!
+#305
+0!
+#310
+1!
+#315
+0!
+#320
+1!
+#325
+0!
+#330
+1!
+#335
+0!
+#340
+1!
+#345
+0!
+#350
+1!
+#355
+0!
+#360
+1!
+#365
+0!
+#370
+1!
+#375
+0!
+#380
+1!
+#385
+0!
+#390
+1!
+#395
+0!
+#400
+1!
+#405
+0!
+#410
+1!
+#415
+0!
+#420
+1!
+#425
+0!
+#430
+1!
+#435
+0!
+#440
+1!
+#445
+0!
+#450
+1!
+#455
+0!
+#460
+1!
+#465
+0!
+#470
+1!
+#475
+0!
+#480
+1!
+#485
+0!
+#490
+1!
+#495
+0!
+#500
+1!
+#505
+0!
+#510
+1!
+#515
+0!
+#520
+1!

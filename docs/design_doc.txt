@@ -1,0 +1,74 @@
+-------------------------------------------------
+|	PROJECT TITLE : 8-bit RISC processor design	|
+|	NAME : AKSHAY RAJENDRA MODAK				|
+|	DEPT : ECE									|
+-------------------------------------------------
+SPECS
+=====
+256-byte data memory
+1K program memory
+PC is 10-bits wide
+IR is 12-bits wide (4 for opcode and 8 for operand/address/offset)
+
+
+INSTRUCTION SET
+===============
+ADD					R <== A + B
+SUB					R <== A – B
+AND					R <== A & B
+OR					R <== A | B
+XOR					R <== A ^ B
+B offset			PC <== PC + offset
+BP offset	 		if R[7] == 0 then PC <== PC + offset
+BN offset			If R[7] == 1 then  PC <== PC + offset
+BZ offset			If R == 0 then PC <== PC + offset
+LDRIA val			A <== val
+LDRIB val			B <== val
+LDRA addr			A <== DMEM[addr]
+LDRB addr			B <== DMEM[addr]
+STR addr			DMEM[addr] <== R
+NOP 				No operation
+HLT					Clock disabled
+
+OPCODES
+=======
+0000	ADD
+0001	SUB
+0010	AND
+0011	OR
+0100	XOR
+0101	B
+0110	BP
+0111	BN
+1000	BZ
+1001	LDRIA
+1010	LDRIB
+1011	LDRA
+1100	LDRB
+1101	STR
+1110	NOP
+1111	HLT
+
+
+CONTROL SIGNALS
+===============
+HLT, INC, REPC, REIR, REDMEM, RER, cu_A, cu_B ...(cu_A and cu_B are 2-bits wide)
+
+
+CONTROL MEMORY LAYOUT
+====================
+control word	control address	   opcode mapping
+------------    ---------------    --------------
+0001000000		0x0					fetch
+0110000000		0x1					fetch
+0000010000		0x2					ADD, SUB, AND, OR, XOR
+0010000000		0x3					B, BP, BN, BZ
+0000001000		0x4					LDRA addr
+0000000010		0x5					LDRB addr
+0000001100		0x6					LDRIA val
+0000000011		0x7					LDRIB val
+0000100000		0x8					STR addr
+0000000000		0x9					NOP
+1000000000		0xA					HLT
+
+
